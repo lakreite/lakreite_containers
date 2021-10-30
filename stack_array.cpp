@@ -30,7 +30,7 @@ stack_array(const std::initializer_list<T_type>& lst)
 
     for (auto iter: lst)
     {
-        array[amount] = *iter;
+        array[amount] = iter;
         ++amount;
     }
     
