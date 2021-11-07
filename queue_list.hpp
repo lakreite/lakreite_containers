@@ -16,7 +16,7 @@
 #include<initializer_list>
 #include<cstdint>
 
-namespace lakreite_containers
+namespace lc
 {
     template<class T_type>
     struct bilist

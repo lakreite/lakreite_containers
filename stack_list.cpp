@@ -7,9 +7,9 @@
 #include"stack_list.hpp"
 
 template<class T_type>
-inline                  lakreite_containers::
-list_elem<T_type>*      lakreite_containers::stack_list<T_type>::
-add_next(lakreite_containers::list_elem<T_type> *to, 
+inline                  lc::
+list_elem<T_type>*      lc::stack_list<T_type>::
+add_next(lc::list_elem<T_type> *to, 
          T_type value)
 {
     to->next = new list_elem<T_type>;
@@ -17,13 +17,13 @@ add_next(lakreite_containers::list_elem<T_type> *to,
     return to->next;
 }
 
-template<class T_type>  lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::stack_list<T_type>::
 stack_list()
 {
     top = nullptr;
 }
 
-template<class T_type>  lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::stack_list<T_type>::
 stack_list(const std::initializer_list<T_type>& lst)
 {
     if (lst.size() == 0)
@@ -44,7 +44,7 @@ stack_list(const std::initializer_list<T_type>& lst)
     jiter->next = nullptr;
 }
 
-template<class T_type>  lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::stack_list<T_type>::
 stack_list(const stack_list<T_type>& origin)
 {
     if (origin.top == nullptr)
@@ -67,14 +67,14 @@ stack_list(const stack_list<T_type>& origin)
     iter1->next = nullptr;
 }
 
-template<class T_type>  lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::stack_list<T_type>::
 stack_list(stack_list<T_type>&& origin)
 {
     top = origin.top;
     origin.top = nullptr;
 }
 
-template<class T_type>  lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::stack_list<T_type>::
 ~stack_list()
 {
     while(top != nullptr)
@@ -85,8 +85,8 @@ template<class T_type>  lakreite_containers::stack_list<T_type>::
     }
 }
 
-template<class T_type>  lakreite_containers::
-stack_list<T_type>      lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::
+stack_list<T_type>      lc::stack_list<T_type>::
 copy()
 {
     stack_list<T_type> result;
@@ -108,7 +108,7 @@ copy()
 }
 
 template<class T_type>
-T_type                  lakreite_containers::stack_list<T_type>::
+T_type                  lc::stack_list<T_type>::
 pop()
 {
     assert(top != nullptr);
@@ -119,8 +119,8 @@ pop()
     return std::move(value);
 }
 
-template<class T_type>  lakreite_containers::
-stack_list<T_type>&     lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::
+stack_list<T_type>&     lc::stack_list<T_type>::
 push(const T_type& new_top_value)
 {
     list_elem<T_type>* new_top = new list_elem<T_type>;
@@ -133,17 +133,17 @@ push(const T_type& new_top_value)
 
 template<class T_type>
 bool 
-    lakreite_containers::stack_list<T_type>::
+    lc::stack_list<T_type>::
 is_empty()
 {
     return top == nullptr;
 }
 
 template<class T_type>
-bool                    lakreite_containers::stack_list<T_type>::
+bool                    lc::stack_list<T_type>::
 operator==(const stack_list<T_type>& arg)
 {
-    lakreite_containers::
+    lc::
     list_elem<T_type> *iter1 = top, 
                       *iter2 = arg.top;
     while (iter1 != nullptr && iter2 != nullptr)
@@ -157,14 +157,14 @@ operator==(const stack_list<T_type>& arg)
 }
 
 template<class T_type>
-bool                    lakreite_containers::stack_list<T_type>::
+bool                    lc::stack_list<T_type>::
 operator!=(const stack_list<T_type>& arg)
 {
     return !(*this == arg);
 }
 
-template<class T_type>  lakreite_containers::
-stack_list<T_type>&     lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::
+stack_list<T_type>&     lc::stack_list<T_type>::
 operator=(const stack_list<T_type>& origin)
 {
     while (top != nullptr)
@@ -191,8 +191,8 @@ operator=(const stack_list<T_type>& origin)
     return *this;
 }
 
-template<class T_type>  lakreite_containers::
-stack_list<T_type>&     lakreite_containers::stack_list<T_type>::
+template<class T_type>  lc::
+stack_list<T_type>&     lc::stack_list<T_type>::
 operator=(stack_list<T_type>&& origin)
 {
     top = origin.top;

@@ -11,7 +11,7 @@ uint64_t
 test_queue_list_constructor()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     std::cerr<<"testing constructor of queue without arguments\n\n"
              <<"prediction:\n"
              <<"            a.in_queue  is null\n"
@@ -174,7 +174,7 @@ test_queue_list_constructor()
 uint64_t
 test_queue_list_comparison()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     queue_list<uint64_t> a{1, 2, 3};
     uint64_t result = 0;
     result += test(a == a);
@@ -197,7 +197,7 @@ test_queue_list_comparison()
 uint64_t
 test_queue_list_push()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     queue_list<uint64_t> a;
     uint64_t result = 0;
     result += test(a.push(1)         == (queue_list<uint64_t>{1})         );
@@ -210,7 +210,7 @@ test_queue_list_push()
 uint64_t
 test_queue_list_pop()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     queue_list<uint64_t> a{1, 2, 3, 4};
     uint64_t result = 0;
     result += test(a.pop() == 4);
@@ -228,7 +228,7 @@ test_queue_list_pop()
 uint64_t
 test_queue_list_operator_at()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     queue_list<uint64_t> a{1, 2, 3, 4};
     result += test(*(a[1]) == 4);
@@ -243,7 +243,7 @@ test_queue_list_operator_at()
 uint64_t
 test_queue_list_operator_at_const()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     const queue_list<uint64_t> a{1, 2, 3, 4};
     result += test(*(a[1]) == 4);
@@ -258,7 +258,7 @@ test_queue_list_operator_at_const()
 uint64_t
 test_queue_list_operator_eq_copy()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     queue_list<uint64_t> a{1, 2, 3, 4};
     queue_list<uint64_t> b;
@@ -275,7 +275,7 @@ test_queue_list_operator_eq_copy()
 uint64_t
 test_queue_list_operator_eq_move()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     queue_list<uint64_t> a{1, 2, 3, 4};
     queue_list<uint64_t> b;
@@ -289,7 +289,7 @@ test_queue_list_operator_eq_move()
 uint64_t
 test_queue_list_push_front()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     queue_list<uint64_t> a{1, 2, 3, 4};
     result += test(a.push_front(5) == (queue_list<uint64_t>{1, 2, 3, 4, 5}   ));
@@ -301,7 +301,7 @@ test_queue_list_push_front()
 uint64_t
 test_queue_list_pop_back()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     queue_list<uint64_t> a{1, 2, 3, 4, 5};
     result += test(a.pop_back() == 1);
@@ -319,7 +319,7 @@ test_queue_list_pop_back()
 uint64_t
 test_queue_list_pop_from()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     queue_list<uint64_t> a{1, 2, 3, 4, 5, 6};
     result += test(a.pop_from(2) == 5);
@@ -341,7 +341,7 @@ test_queue_list_pop_from()
 uint64_t
 test_queue_list_push_to()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     queue_list<uint64_t> a;
     a.push_to(8, 8);

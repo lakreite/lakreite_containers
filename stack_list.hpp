@@ -3,7 +3,7 @@
 
 #include<initializer_list>
 
-namespace lakreite_containers
+namespace lc
 {
     template<class T_type>
     struct list_elem

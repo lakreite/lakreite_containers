@@ -8,13 +8,13 @@
 
 template<class T_type>
 inline
-uint64_t lakreite_containers::queue_list<T_type>::
+uint64_t lc::queue_list<T_type>::
 size() const{
     return this->amount;
 }
 
-template<class T_type>  lakreite_containers::
-bilist<T_type>*         lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::
+bilist<T_type>*         lc::queue_list<T_type>::
 add_next(bilist<T_type>* to, const T_type& from)
 {
     assert(to != nullptr);
@@ -25,7 +25,7 @@ add_next(bilist<T_type>* to, const T_type& from)
     return to->next;
 }
 
-template<class T_type>  lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::queue_list<T_type>::
 queue_list()
 {
     amount    = 0;
@@ -33,7 +33,7 @@ queue_list()
     out_queue = nullptr;
 }
 
-template<class T_type>  lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::queue_list<T_type>::
 queue_list(const queue_list<T_type>& origin)
 {
     amount = origin.amount;
@@ -56,7 +56,7 @@ queue_list(const queue_list<T_type>& origin)
     out_queue       = this_iter;
 }
 
-template<class T_type>  lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::queue_list<T_type>::
 queue_list(queue_list<T_type>&& origin)
 {
     in_queue  = origin.in_queue;
@@ -68,7 +68,7 @@ queue_list(queue_list<T_type>&& origin)
     origin.amount    = 0;  
 }
 
-template<class T_type>  lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::queue_list<T_type>::
 queue_list(const std::initializer_list<T_type>& init_list)
 {
     amount = init_list.size();
@@ -95,7 +95,7 @@ queue_list(const std::initializer_list<T_type>& init_list)
     out_queue       = this_iter;
 }
 
-template<class T_type>  lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::queue_list<T_type>::
 ~queue_list()
 {
     while (in_queue != nullptr){
@@ -106,8 +106,8 @@ template<class T_type>  lakreite_containers::queue_list<T_type>::
     amount = 0;
 }
 
-template<class T_type>  lakreite_containers::
-queue_list<T_type>&     lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::
+queue_list<T_type>&     lc::queue_list<T_type>::
 push(const T_type& value)
 {
     if (amount == 0){
@@ -130,7 +130,7 @@ push(const T_type& value)
 }
 
 template<class T_type>
-T_type                  lakreite_containers::queue_list<T_type>::
+T_type                  lc::queue_list<T_type>::
 pop()
 {
     assert(out_queue != nullptr);
@@ -151,7 +151,7 @@ pop()
 }
 
 template<class T_type>
-T_type*                 lakreite_containers::queue_list<T_type>::
+T_type*                 lc::queue_list<T_type>::
 operator[](uint64_t i)
 {
     if (i > amount)
@@ -166,7 +166,7 @@ operator[](uint64_t i)
 }
 
 template<class T_type>
-const T_type*           lakreite_containers::queue_list<T_type>::
+const T_type*           lc::queue_list<T_type>::
 operator[](uint64_t i) const
 {
     if (i > amount)
@@ -181,7 +181,7 @@ operator[](uint64_t i) const
 }
 
 template<class T_type>
-bool            lakreite_containers::queue_list<T_type>::
+bool            lc::queue_list<T_type>::
 operator==(const queue_list<T_type>& arg) const
 {
     if (amount != arg.amount)
@@ -201,14 +201,14 @@ operator==(const queue_list<T_type>& arg) const
 }
 
 template<class T_type>
-bool                    lakreite_containers::queue_list<T_type>::
+bool                    lc::queue_list<T_type>::
 operator!=(const queue_list<T_type>& arg) const
 {
     return !(this->operator==(arg));
 }
 
-template<class T_type>  lakreite_containers::
-queue_list<T_type>&     lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::
+queue_list<T_type>&     lc::queue_list<T_type>::
 operator=(const queue_list<T_type>& origin)
 {
     while (amount > origin.amount){
@@ -231,8 +231,8 @@ operator=(const queue_list<T_type>& origin)
     return *this;
 }
 
-template<class T_type>  lakreite_containers::
-queue_list<T_type>&     lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::
+queue_list<T_type>&     lc::queue_list<T_type>::
 operator=(queue_list<T_type>&& origin)
 {
     while (in_queue != nullptr){
@@ -251,8 +251,8 @@ operator=(queue_list<T_type>&& origin)
     return *this;
 }
 
-template<class T_type>  lakreite_containers::
-queue_list<T_type>&     lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::
+queue_list<T_type>&     lc::queue_list<T_type>::
 push_front(const T_type& value)
 {
     if (amount == 0){
@@ -267,7 +267,7 @@ push_front(const T_type& value)
 }
 
 template<class T_type>
-T_type                  lakreite_containers::queue_list<T_type>::
+T_type                  lc::queue_list<T_type>::
 pop_back()
 {
     assert(in_queue != nullptr);
@@ -290,7 +290,7 @@ pop_back()
 }
 
 template<class T_type>
-T_type                  lakreite_containers::queue_list<T_type>::
+T_type                  lc::queue_list<T_type>::
 pop_from(uint64_t i)
 {
     assert(i > 0 && i <= amount);
@@ -314,8 +314,8 @@ pop_from(uint64_t i)
     return retval;
 }
 
-template<class T_type>  lakreite_containers::
-queue_list<T_type>&     lakreite_containers::queue_list<T_type>::
+template<class T_type>  lc::
+queue_list<T_type>&     lc::queue_list<T_type>::
 push_to(uint64_t i, const T_type& value){
     if (i > amount){
         while (i > amount + 1){

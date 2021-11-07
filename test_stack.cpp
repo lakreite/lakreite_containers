@@ -25,7 +25,7 @@
 uint64_t 
 test_stack_list_equal()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     stack_list<int64_t> a, b;
     a.top = new list_elem<int64_t>;
     b.top = new list_elem<int64_t>;
@@ -65,7 +65,7 @@ uint64_t
 test_stack_list_constructor()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     stack_list<int64_t> a;
     result += test(a.is_empty());
     //assert(a.is_empty());
@@ -92,7 +92,7 @@ uint64_t
 test_stack_list_copy()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     stack_list<int64_t> a{1, 2, 3, 4};
     stack_list<int64_t> a_copy(static_cast<stack_list<int64_t>&&>(a.copy()));
     result += test(a == a_copy);
@@ -108,7 +108,7 @@ uint64_t
 test_stack_list_push()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     stack_list<int64_t> a;
     a.push(1);
     stack_list<int64_t> b{1};
@@ -125,7 +125,7 @@ uint64_t
 test_stack_list_pop()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     stack_list<int64_t> a;
     a.push(1).push(2).push(3);
 

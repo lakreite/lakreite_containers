@@ -2,10 +2,12 @@
 #define LAKREITE_STACK_ARRAY_CPP
 
 #include"stack_array.hpp"
+#include <algorithm>
 #include<cassert>
+#include <clocale>
 #include<utility>
 
-template<class T_type> lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::stack_array<T_type>::
 stack_array()
 {
     array = new T_type[10];
@@ -13,7 +15,7 @@ stack_array()
     capacity = 10;
 }
 
-template<class T_type> lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::stack_array<T_type>::
 stack_array(const std::initializer_list<T_type>& lst)
 {
     if (lst.size() == 0)
@@ -36,22 +38,22 @@ stack_array(const std::initializer_list<T_type>& lst)
     
 }
 
-template<class T_type> lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::stack_array<T_type>::
 stack_array(const stack_array<T_type>& origin)
 {
     array = nullptr;
     *this = origin;
 }
 
-template<class T_type> lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::stack_array<T_type>::
 stack_array(stack_array<T_type>&& origin)
 {
     array = nullptr;
     *this = std::move(origin);
 }
 
-template<class T_type> lakreite_containers::
-stack_array<T_type>&   lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::
+stack_array<T_type>&   lc::stack_array<T_type>::
 operator=(const stack_array<T_type>& origin)
 {
     if (array != nullptr)
@@ -67,8 +69,8 @@ operator=(const stack_array<T_type>& origin)
     return *this;
 }
 
-template<class T_type> lakreite_containers::
-stack_array<T_type>&   lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::
+stack_array<T_type>&   lc::stack_array<T_type>::
 operator=(stack_array<T_type>&& origin)
 {
     if (array != nullptr)
@@ -80,7 +82,7 @@ operator=(stack_array<T_type>&& origin)
     return *this;
 }
 
-template<class T_type> lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::stack_array<T_type>::
 ~stack_array()
 {
     if (array != nullptr)
@@ -91,7 +93,7 @@ template<class T_type> lakreite_containers::stack_array<T_type>::
 }
 
 template<class T_type>
-bool             lakreite_containers::stack_array<T_type>::
+bool             lc::stack_array<T_type>::
 operator==(const stack_array<T_type>& arg)
 const
 {
@@ -104,7 +106,7 @@ const
 }
 
 template<class T_type>
-bool                   lakreite_containers::stack_array<T_type>::
+bool                   lc::stack_array<T_type>::
 operator!=(const stack_array<T_type>& arg)
 const
 {
@@ -113,7 +115,7 @@ const
 
 template<class T_type>
 inline
-T_type&                lakreite_containers::stack_array<T_type>::
+T_type&                lc::stack_array<T_type>::
 operator[](uint64_t i)
 {
     assert(i < amount);
@@ -124,7 +126,7 @@ operator[](uint64_t i)
 template<class T_type>
 const
 inline
-T_type&          lakreite_containers::stack_array<T_type>::
+T_type&          lc::stack_array<T_type>::
 operator[](uint64_t i)
 const
 {
@@ -132,8 +134,8 @@ const
     return array[amount - i - 1];
 }
 
-template<class T_type> lakreite_containers::
-stack_array<T_type>&   lakreite_containers::stack_array<T_type>::
+template<class T_type> lc::
+stack_array<T_type>&   lc::stack_array<T_type>::
 push(const T_type& new_top_value)
 {
     if (amount + 1 > capacity)
@@ -144,7 +146,7 @@ push(const T_type& new_top_value)
 }
 
 template<class T_type> 
-T_type                 lakreite_containers::stack_array<T_type>::
+T_type                 lc::stack_array<T_type>::
 pop()
 {
     assert(amount > 0);
@@ -154,7 +156,7 @@ pop()
 
 template<class T_type>
 inline
-uint64_t              lakreite_containers::stack_array<T_type>::
+uint64_t              lc::stack_array<T_type>::
 get_capacity()
 const
 {
@@ -162,7 +164,7 @@ const
 }
 
 template<class T_type>
-void                   lakreite_containers::stack_array<T_type>::
+void                   lc::stack_array<T_type>::
 add_capacity()
 {
     uint64_t new_capacity = capacity + 10;
@@ -180,7 +182,7 @@ add_capacity()
 
 template<class T_type>
 inline
-uint64_t               lakreite_containers::stack_array<T_type>::
+uint64_t               lc::stack_array<T_type>::
 size()
 const
 {

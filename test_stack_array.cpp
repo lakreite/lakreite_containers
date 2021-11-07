@@ -9,7 +9,7 @@ uint64_t
 test_constructor_default()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     std::cerr << "testing constructor default:\n"
               << "prediction:\n"
               << "              a.array != nullptr\n"
@@ -63,7 +63,7 @@ test_constructor_default()
 uint64_t
 test_operator_eq()
 {
-    using namespace lakreite_containers;
+    using namespace lc;
     uint64_t result = 0;
     stack_array<uint64_t> a{1,2,3,4}, b{1,2,3,4}, c{1,2,3};
     result += test(a == b);
@@ -78,7 +78,7 @@ uint64_t
 test_operator_at()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     stack_array<uint64_t> a{1, 2, 3};
     result += test(a[0] == 3);
     result += test(a[1] == 2);
@@ -91,7 +91,7 @@ uint64_t
 test_push_pop()
 {
     uint64_t result = 0;
-    using namespace lakreite_containers;
+    using namespace lc;
     stack_array<uint64_t> a{1, 2, 3}, b{1, 2, 3, 4}, c(a);
     a.push(4);
     result += test(a == b);
