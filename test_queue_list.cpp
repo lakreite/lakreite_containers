@@ -1,6 +1,6 @@
 #define DBG_queue_list
 
-#include"queue_list.cpp"
+#include"queue_list.hpp"
 
 #include<initializer_list>
 #include<iostream>

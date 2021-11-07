@@ -3,7 +3,6 @@
 #include"test_macro.hpp"
 #include<cstdint>
 #include"stack_array.hpp"
-#include"stack_array.cpp"
 
 uint64_t
 test_constructor_default()

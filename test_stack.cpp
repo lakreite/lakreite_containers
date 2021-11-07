@@ -1,6 +1,6 @@
 #define DBG_stack_list
 
-#include"stack_list.cpp"
+#include"stack_list.hpp"
 #include<iostream>
 
 
